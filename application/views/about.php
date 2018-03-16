@@ -47,53 +47,58 @@
         </div>
       </section>
 
-    <!-- Section: About  -->
-    <section>
+    <!-- Section: Who We Are AND Why Choose Us -->
+    <section class="bg-lighter">
       <div class="container">
-        <div class="section-content" style="text-align: justify;">
+        <div class="section-content">
           <div class="row">
             <div class="col-md-6">
               <h3 class="line-bottom mt-0">Who We Are?</h3>
-              <h4 class="font-18 font-weight-500 text-gray-dimgray mt-20 mb-15">Lorem ipsum dolor sit amet consectetur adipisicing elit Perferendis repudiandae nostrum quibusdam! elit Perferendis repudiandae</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut minus commodi, illo, enim nemo illum repellendus accusantium maiores delectus doloribus alias ea quisquam cum nulla a volupta delectus doloribus alias ea quisquam cum nulla a voluptatum nobis eius, deleniti dicta molestiae atque. Exercitationem odit dolor cumque facilis natus recusandae id, dolorum modi ducimus minus.</p>
+              <p>
+                <?php  foreach ($WhoWeAre as $WhoWeAreKey) { ?>
+                  <?=$WhoWeAreKey->Text?>
+                <?php } ?>
+              </p>
             </div>
             <div class="col-md-6">
-                <h3 class="line-bottom mt-0">Why Choose Us?</h3>
-                <div id="accordion1" class="panel-group accordion mb-0">
+              <h3 class="line-bottom mt-0">Why Choose Us?</h3>
+              <div id="accordion1" class="panel-group accordion mb-0">
+                <?php  foreach ($WhyChooseUs as $WhyChooseUsKey) { ?>
                   <div class="panel">
-                    <div class="panel-title"> <a class="active" data-parent="#accordion1" data-toggle="collapse" href="#accordion11" aria-expanded="true"> <span class="open-sub"></span> Why this Company is Best?</a> </div>
+                    <div class="panel-title"> <a class="active" data-parent="#accordion1" data-toggle="collapse" href="#accordion11" aria-expanded="true"> <span class="open-sub"></span> <?=$WhyChooseUsKey->Title_1?> </a> </div>
                     <div id="accordion11" class="panel-collapse collapse in" role="tablist" aria-expanded="true">
                       <div class="panel-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore impedit quae repellendus provident dolor iure poss imusven am aliquam. Officiis totam ea laborum deser unt vonsess.  iure poss imusven am aliquamLorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p><?=$WhyChooseUsKey->Text_1?></p>
                       </div>
                     </div>
                   </div>
                   <div class="panel">
-                    <div class="panel-title"> <a data-parent="#accordion1" data-toggle="collapse" href="#accordion12" class="" aria-expanded="true"> <span class="open-sub"></span> Why this Company is Best?</a> </div>
+                    <div class="panel-title"> <a data-parent="#accordion1" data-toggle="collapse" href="#accordion12" class="" aria-expanded="true"> <span class="open-sub"></span> <?=$WhyChooseUsKey->Title_2?> </a> </div>
                     <div id="accordion12" class="panel-collapse collapse" role="tablist" aria-expanded="true">
                       <div class="panel-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore impedit quae repellendus provident dolor iure poss imusven am aliquam. Officiis totam ea laborum deser unt vonsess.  iure poss imusven am aliquamLorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p><?=$WhyChooseUsKey->Text_2?></p>
                       </div>
                     </div>
                   </div>
                   <div class="panel">
-                    <div class="panel-title"> <a data-parent="#accordion1" data-toggle="collapse" href="#accordion13" class="" aria-expanded="true"> <span class="open-sub"></span> Why this Company is Best?</a> </div>
+                    <div class="panel-title"> <a data-parent="#accordion1" data-toggle="collapse" href="#accordion13" class="" aria-expanded="true"> <span class="open-sub"></span> <?=$WhyChooseUsKey->Title_3?> </a> </div>
                     <div id="accordion13" class="panel-collapse collapse" role="tablist" aria-expanded="true">
                       <div class="panel-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore impedit quae repellendus provident dolor iure poss imusven am aliquam. Officiis totam ea laborum deser unt vonsess.  iure poss imusven am aliquamLorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p><?=$WhyChooseUsKey->Text_3?></p>
                       </div>
                     </div>
                   </div>
                   <div class="panel">
-                    <div class="panel-title"> <a data-parent="#accordion1" data-toggle="collapse" href="#accordion14" class="" aria-expanded="true"> <span class="open-sub"></span> Why this Company is Best?</a> </div>
+                    <div class="panel-title"> <a data-parent="#accordion1" data-toggle="collapse" href="#accordion14" class="" aria-expanded="true"> <span class="open-sub"></span> <?=$WhyChooseUsKey->Title_4?> </a> </div>
                     <div id="accordion14" class="panel-collapse collapse" role="tablist" aria-expanded="true">
                       <div class="panel-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore impedit quae repellendus provident dolor iure poss imusven am aliquam. Officiis totam ea laborum deser unt vonsess.  iure poss imusven am aliquamLorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p><?=$WhyChooseUsKey->Text_4?></p>
                       </div>
                     </div>
                   </div>
-                </div>
+                <?php } ?>
               </div>
+            </div>
           </div>
         </div>
       </div>
@@ -103,6 +108,7 @@
     <!-- Divider: Funfact -->
     <section class="divider parallax layer-overlay overlay-white-9" data-parallax-ratio="0.7">
       <div class="container pt-30 pb-0">
+      <?php  foreach ($Achievements as $Achievementskey) { ?>
         <div class="row">
           <div class="col-md-4">
             <img class="img-fullwidth" src="<?=base_url()?>assets/images/about/management.jpg" alt="">
@@ -111,26 +117,27 @@
             <div class="col-xs-12 col-sm-6 col-md-4 mb-md-50">
               <div class="funfact text-center">
                 <i class="flaticon-worker font-weight-800 font-32 mt-5"></i>
-                <h2 class="animate-number text-theme-colored font-36 font-weight-500 font-trirong mt-10 mb-0" data-value="86" data-animation-duration="2000">0</h2>
+                <h2 class="animate-number text-theme-colored font-36 font-weight-500 font-trirong mt-10 mb-0" data-value="<?=$Achievementskey->NoOfClients?>" data-animation-duration="2000"><?=$Achievementskey->NoOfClients?></h2>
                 <h5 class="text-uppercase font-14 text-gray">Number of Clients</h5>
               </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 mb-md-50">
               <div class="funfact text-center">
                 <i class="flaticon-layers font-weight-800 font-32 mt-5"></i>
-                <h2 class="animate-number text-theme-colored font-36 font-weight-500 font-trirong mt-10 mb-0" data-value="820" data-animation-duration="2000">0</h2>
+                <h2 class="animate-number text-theme-colored font-36 font-weight-500 font-trirong mt-10 mb-0" data-value="<?=$Achievementskey->MachineSold?>" data-animation-duration="2000"><?=$Achievementskey->MachineSold?></h2>
                 <h5 class="text-uppercase font-14 text-gray">Machines Sold</h5>
               </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 mb-md-50">
               <div class="funfact text-center">
                 <i class="flaticon-trophy2 font-weight-800 font-32 mt-5"></i>
-                <h2 class="animate-number text-theme-colored font-36 font-weight-500 font-trirong mt-10 mb-0" data-value="7" data-animation-duration="2000">0</h2>
+                <h2 class="animate-number text-theme-colored font-36 font-weight-500 font-trirong mt-10 mb-0" data-value="<?=$Achievementskey->AwardsWon?>" data-animation-duration="2000"><?=$Achievementskey->AwardsWon?></h2>
                 <h5 class="text-uppercase font-14 text-gray">Awards Won</h5>
               </div>
             </div>
           </div>
         </div>
+      <?PHP } ?>
       </div>
     </section>
     
@@ -149,57 +156,14 @@
         <div class="row">
           <div class="col-md-12">
               <div class="owl-carousel-4col clients-logo transparent text-center">
+                <?php foreach ($OurPartners as $OurPartnerskey) { ?>
                   <div class="item">
                     <a href="#">
-                      <img src="<?=base_url()?>assets/images/clients/logo.gif" alt="">
+                      <img src="<?=base_url()?>assets/Uploads/Images/<?=$OurPartnerskey->Image?>" alt="" style="height:80px;">
                     </a>
                   </div>
-                  <div class="item">
-                    <a href="#">
-                      <img src="<?=base_url()?>assets/images/clients/logo.jpg" alt="">
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="#">
-                      <img src="<?=base_url()?>assets/images/clients/logo.gif" alt="">
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="#">
-                      <img src="<?=base_url()?>assets/images/clients/logo.jpg" alt="">
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="#">
-                      <img src="<?=base_url()?>assets/images/clients/logo.gif" alt="">
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="#">
-                      <img src="<?=base_url()?>assets/images/clients/logo.jpg" alt="">
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="#">
-                      <img src="<?=base_url()?>assets/images/clients/logo.gif" alt="">
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="#">
-                      <img src="<?=base_url()?>assets/images/clients/logo.jpg" alt="">
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="#">
-                      <img src="<?=base_url()?>assets/images/clients/logo.gif" alt="">
-                    </a>
-                  </div>
-                  <div class="item">
-                    <a href="#">
-                      <img src="<?=base_url()?>assets/images/clients/logo.jpg" alt="">
-                    </a>
-                  </div>
-                </div>
+                <?php } ?>
+              </div>
           </div>
         </div>
       </div>

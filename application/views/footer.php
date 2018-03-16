@@ -4,7 +4,7 @@
         <div class="col-sm-6 col-md-4">
           <div class="widget dark"> <img alt="" style="height:59px" src="<?=base_url()?>assets/images/logo-wide-white-footer.png">
             <p class="font-12 mt-20 mb-10">ver since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five cent</p>
-            <a class="text-gray font-12" href="<?=base_url()?>index.php/Index/services"><i class="fa fa-angle-double-right text-theme-colored"></i> Read more</a>
+            <a class="text-gray font-12" href="<?=base_url()?>index.php/Index/about"><i class="fa fa-angle-double-right text-theme-colored"></i> Read more</a>
             <ul class="styled-icons icon-dark mt-20">
               <li><a href="#" data-bg-color="#3B5998"><i class="fa fa-facebook"></i></a></li>
               <li><a href="#" data-bg-color="#02B0E8"><i class="fa fa-twitter"></i></a></li>
@@ -19,7 +19,7 @@
               <h5 class="widget-title line-bottom">Useful Links</h5>
               <ul class="list angle-double-right list-border">
                 <li><a href="<?=base_url()?>index.php/Index/index">Home</a></li>
-                <li><a href="<?=base_url()?>index.php/Index/about">About</a></li>
+                <li><a href="<?=base_url()?>index.php/Index/support"> Support </a></li>
                 <li><a href="<?=base_url()?>index.php/Index/events"> Events </a></li> 
                 <li><a href="<?=base_url()?>index.php/Index/clients"> Clients </a></li>
                 <li><a href="<?=base_url()?>index.php/Index/case_studies">Case Studies</a></li>             

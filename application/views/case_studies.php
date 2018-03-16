@@ -54,62 +54,22 @@
             <div class="col-sm-12 col-md-12">
                 <div class="blog-posts">
                     <div class="row ">
-                        <div class="col-sm-4 p-0 pr-10 mb-30">
-                            <article class="post clearfix bg-lighter" style="min-height:130px" data-bg-img="<?=base_url()?>assets/images/blog/3.jpg" >
-                                <div class="entry-content no-bg p-10">
-                                <div class="entry-meta media mt-0 no-bg no-border">
-                                    <div class="media-body pl-15">
-                                        <div class="event-content pull-left flip">
-                                            <h4 class="entry-title text-white text-uppercase m-0 mt-0"><b>Case Studies title here </b>  </h4>  <small class="text-white"> ( 250 Downloads )</small>
+                        <?php foreach ($case_studies as $case) { ?>
+                            <div class="col-sm-4 p-0 pr-10 mb-30">
+                                <article class="post clearfix bg-lighter" style="min-height:130px;background-repeat: no-repeat;background-position: center;" data-bg-img="<?=base_url()?>assets/Uploads/Images/<?=$case->image?>" >
+                                    <div class="entry-content no-bg p-10">
+                                    <div class="entry-meta media mt-0 no-bg no-border">
+                                        <div class="media-body pl-15">
+                                            <div class="event-content pull-left flip">
+                                                <h4 class="entry-title text-white text-uppercase m-0 mt-0"><b> <?=$case->name?> </b>  </h4>  <small class="text-white"> ( <?=$case->downloads?> Downloads )</small>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                    <button style="position:absolute; bottom:10px; right:20px;" type="button" class="btn btn-theme-colored btn-flat btn-lg"> <i class="fa fa-download"></i> Download </button>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="col-sm-4 p-0 pr-10 mb-30">
-                            <article class="post clearfix bg-lighter" style="min-height:130px" data-bg-img="<?=base_url()?>assets/images/blog/3.jpg" >
-                                <div class="entry-content no-bg p-10">
-                                <div class="entry-meta media mt-0 no-bg no-border">
-                                    <div class="media-body pl-15">
-                                        <div class="event-content pull-left flip">
-                                            <h4 class="entry-title text-white text-uppercase m-0 mt-0"><b>Case Studies title here </b>  </h4>  <small class="text-white"> ( 250 Downloads )</small>
-                                        </div>
+                                        <button style="position:absolute; bottom:10px; right:20px;" type="button" onclick="openInNewTab('<?=base_url()?>assets/Uploads/Files/<?=$case->pdf?>', <?=$case->id?> );" class="btn btn-theme-colored btn-flat btn-lg"> <i class="fa fa-download"></i> Download </button>
                                     </div>
-                                </div>
-                                    <button style="position:absolute; bottom:10px; right:20px;" type="button" class="btn btn-theme-colored btn-flat btn-lg"> <i class="fa fa-download"></i> Download </button>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="col-sm-4 p-0 pr-10 mb-30">
-                            <article class="post clearfix bg-lighter" style="min-height:130px" data-bg-img="<?=base_url()?>assets/images/blog/3.jpg" >
-                                <div class="entry-content no-bg p-10">
-                                <div class="entry-meta media mt-0 no-bg no-border">
-                                    <div class="media-body pl-15">
-                                        <div class="event-content pull-left flip">
-                                            <h4 class="entry-title text-white text-uppercase m-0 mt-0"><b>Case Studies title here </b>  </h4>  <small class="text-white"> ( 250 Downloads )</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                    <button style="position:absolute; bottom:10px; right:20px;" type="button" class="btn btn-theme-colored btn-flat btn-lg"> <i class="fa fa-download"></i> Download </button>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="col-sm-4 p-0 pr-10 mb-30">
-                            <article class="post clearfix bg-lighter" style="min-height:130px" data-bg-img="<?=base_url()?>assets/images/blog/3.jpg" >
-                                <div class="entry-content no-bg p-10">
-                                <div class="entry-meta media mt-0 no-bg no-border">
-                                    <div class="media-body pl-15">
-                                        <div class="event-content pull-left flip">
-                                            <h4 class="entry-title text-white text-uppercase m-0 mt-0"><b>Case Studies title here </b>  </h4>  <small class="text-white"> ( 250 Downloads )</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                    <button style="position:absolute; bottom:10px; right:20px;" type="button" class="btn btn-theme-colored btn-flat btn-lg"> <i class="fa fa-download"></i> Download </button>
-                                </div>
-                            </article>
-                        </div>
+                                </article>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -138,6 +98,20 @@
     $(document).ready(function() {
       $(".case_studiesPage").addClass("active");
     });
+
+    function openInNewTab(url, id) {
+        $.ajax({
+            url: "<?=base_url()?>index.php/Index/Case_Studies_Download",
+            type:"POST",
+            data: {id:id},
+            success: function(html){
+                console.log(html);
+            }
+        });
+        var win = window.open(url, '_blank');
+        win.focus();
+    }
+
   </script>
 
 </body>

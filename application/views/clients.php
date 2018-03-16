@@ -53,59 +53,11 @@
         <div class="container pb-20">
           <div class="section-content">
             <div class="row">
-              <div class="col-md-12">
-              
-                <div id="grid" class="gallery-isotope grid-4 gutter clearfix">
-
-                  <div class="gallery-item photography">
-                    <div class="thumb">
-                      <img class="img-fullwidth" src="<?=base_url()?>assets/images/clients/kennametal-logo.png" alt="project">
+                  <?php foreach ($clients as $logo) {?>
+                    <div class="col-sm-3" style="height:120px">
+                        <img class="img-fullwidth" style="max-height:100px" src="<?=base_url()?>assets/Uploads/Images/<?=$logo->Image?>" alt="project">
                     </div>
-                    
-                  </div>
-
-                 
-                  <div class="gallery-item photography">
-                    <div class="thumb">
-                      <img class="img-fullwidth" src="<?=base_url()?>assets/images/clients/kpt-power-tools-logo.gif" alt="project">
-                    </div>
-                    
-                  </div>
-
-                  <div class="gallery-item photography">
-                    <div class="thumb">
-                      <img class="img-fullwidth" src="<?=base_url()?>assets/images/clients/logo_2.jpg" alt="project">
-                    </div>
-                   
-                  </div>
-                  <div class="gallery-item photography">
-                    <div class="thumb">
-                      <img class="img-fullwidth" src="<?=base_url()?>assets/images/clients/kennametal-logo.png" alt="project">
-                    </div>
-                   
-                  </div>
-
-
-                  <div class="gallery-item photography">
-                    <div class="thumb">
-                      <img class="img-fullwidth" src="<?=base_url()?>assets/images/clients/kpt-power-tools-logo.gif" alt="project">
-                    </div>
-                  
-                  </div>
-
-                  <div class="gallery-item photography">
-                    <div class="thumb">
-                      <img class="img-fullwidth" src="<?=base_url()?>assets/images/clients/logo_2.jpg" alt="project">
-                    </div>
-                    
-                  </div>
-
-                 
-
-      
-                </div>
-                            
-              </div>
+                  <?php } ?>
             </div>
           </div>
         </div>

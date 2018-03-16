@@ -14,7 +14,7 @@
                 </ul>
               </div>
             </div>
-            <div class="col-md-4 pr-0">
+            <div class="col-md-6 pr-0">
               <div class="widget no-border m-0" style="line-height:20px;">
                 <ul class="styled-icons icon-dark icon-flat icon-sm pull-right flip sm-pull-none sm-text-center mt-sm-15">
                   <li>
@@ -38,9 +38,9 @@
                 </ul>
               </div>
             </div>
-            <div class="col-md-2">
+            <!-- <div class="col-md-2">
               <a class="btn btn-colored btn-flat btn-theme-colored bs-modal-ajax-load pb-10" href="#" data-toggle="modal" data-target="#getQuote" >Get A Quote Now</a>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -56,42 +56,38 @@
                 <li class="aboutPage"> <a href="<?=base_url()?>index.php/Index/about">About Us</a>  </li>
                 <li class="productPage"> <a href="#"> Products </a>
                   <ul class="dropdown">
-                    <li> <a href="#">Main Category-1</a>
-                      <ul class="dropdown">
-                        <li> <a href="#"> Sub Category-1</a>
-                          <ul class="dropdown">
-                            <li> <a href="<?=base_url()?>index.php/Index/products">Product-1</a>  </li>
-                            <li> <a href="<?=base_url()?>index.php/Index/products">Product-2</a> </li>
-                          </ul>
-                        </li>
-                        <li> <a href="#">Sub Category-2</a>
-                          <ul class="dropdown">
-                            <li> <a href="<?=base_url()?>index.php/Index/products">Product-1</a> </li>
-                            <li> <a href="<?=base_url()?>index.php/Index/products">Product-2</a> </li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                    <li> <a href="#">Main Category-2</a>
-                      <ul class="dropdown">
-                        <li> <a href="#"> Sub Category-1</a>
-                          <ul class="dropdown">
-                            <li> <a href="<?=base_url()?>index.php/Index/products">Product-1</a> </li>
-                            <li> <a href="<?=base_url()?>index.php/Index/products">Product-2</a> </li>
-                          </ul>
-                        </li>
-                        <li> <a href="#">Sub Category-2</a>
-                          <ul class="dropdown">
-                            <li> <a href="<?=base_url()?>index.php/Index/products">Product-1</a> </li>
-                            <li> <a href="<?=base_url()?>index.php/Index/products">Product-2</a> </li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
+                    <?php 
+                    $pro_brand =	$this->db->select("*")->from('product_brands')->order_by("product_brands.Short_Order asc")->get()->result();
+                      foreach($pro_brand as $brand){ ?>
+                      <li> <a href="#"><?=$brand->Name?></a>
+                        <ul class="dropdown">
+                          <?php 
+                          $brandId = $brand->id;
+                          $pro_category =	$this->db->select("*")->from('product_category')->where(array('Brand_Id' => $brandId ))->order_by("product_category.Short_Order asc")->get()->result();
+                            foreach($pro_category as $category){ ?>
+                            <li> <a href="#"> <?=$category->Name?> </a>
+                              <ul class="dropdown">
+                                <?php 
+                                $categoryId = $category->id;
+                                $products =	$this->db->select("*")->from('products')->where(array('Category_Id' => $categoryId ))->order_by("products.Short_Order asc")->get()->result();
+                                  foreach($products as $product){ ?>
+                                  <li> <a href="<?=base_url()?>index.php/Index/products?id=<?=$product->id?>"> <?=$product->Name?> </a>  </li>
+                                <?php } ?>
+                              </ul>
+                            </li>
+                          <?php } ?>
+                        </ul>
+                      </li>
+                    <?php } ?>
+
                   </ul>
                 </li>
-                <li class="servicePage"> <a href="<?=base_url()?>index.php/Index/services"> Services </a> </li>
-                <li class="eventsPage"> <a href="<?=base_url()?>index.php/Index/events"> Events </a> </li>
+                <li class="servicePage"> <a href="<?=base_url()?>index.php/Index/support"> Support </a> </li>
+                <?php
+                  $EventStatus =	$this->db->select("Status")->from('events')->limit(1)->get()->result_array();
+                  if ($EventStatus[0]['Status'] === 'Active') { ?>
+                    <li class="eventsPage"> <a href="<?=base_url()?>index.php/Index/events"> Events </a> </li>
+                <?php } ?>
                 <li class="case_studiesPage"> <a href="<?=base_url()?>index.php/Index/case_studies"> Case Studies </a> </li>
                 <li class="clientsPage"> <a href="<?=base_url()?>index.php/Index/clients"> Clients </a> </li>
                 <li class="contactPage"> <a href="<?=base_url()?>index.php/Index/contact"> Contact </a> </li>
