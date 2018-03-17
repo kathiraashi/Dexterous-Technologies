@@ -9,8 +9,8 @@ class Login extends CI_Controller {
           $this->load->model('login_model'); 
           
        
-		  if($this->session->userdata('user_id')!="") {
-			   echo "<script>window.location.href='".base_url()."index.php/Admin/Product_Brand'</script>";
+		  if($this->session->userdata("user_id")!="") {
+			   echo '<script>window.location.href="'.base_url().'index.php/Admin/Product_Brand"</script>';
 		  }
 
 		

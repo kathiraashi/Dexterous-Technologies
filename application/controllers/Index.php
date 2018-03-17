@@ -14,6 +14,7 @@ class Index extends CI_Controller {
 
   // ---------------------------------------------- Home  --------------------------------------------
 	public function index(){
+    $data['Sliders'] = $this->common_model->select('*','sliders');
     $data['WhoWeAre'] = $this->common_model->select('*','who_we_are');
     $data['WhyChooseUs'] = $this->common_model->select('*','why_choose_us');
     $data['Achievements'] = $this->common_model->select('*','achievements');

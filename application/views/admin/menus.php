@@ -33,9 +33,6 @@
 
 
 
-
-
-
   <aside class="main-sidebar">
     <section class="sidebar">
       <ul class="sidebar-menu">
@@ -108,6 +105,18 @@
             <li class="SupportEnqueriesPage"><a href="<?=base_url()?>index.php/Admin/SupportEnqueries"><i class="fa fa-circle-o text-aqua"></i> <span> SUPPORT ENQUERIES </span></a></li>
             <li class="QuoteRequestsPage"><a href="<?=base_url()?>index.php/Admin/QuoteRequests"><i class="fa fa-circle-o text-aqua"></i> <span> QUOTATION REQUESTS </span></a></li>
             <li class="ContactInterestsPage"><a href="<?=base_url()?>index.php/Admin/ContactInterests"><i class="fa fa-circle-o text-aqua"></i> <span> CONTACT INTREST REQUESTS </span></a></li>
+          </ul>
+        </li>
+
+        <li class="treeview OthersPage">
+          <a href="#">
+            <i class="fa fa-laptop"></i><span> OTHERS </span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="SliderPage"><a href="<?=base_url()?>index.php/Admin/Slider"><i class="fa fa-circle-o text-aqua"></i> <span> SLIDERS </span></a></li>
           </ul>
         </li>
 

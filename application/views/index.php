@@ -28,138 +28,123 @@
       <!-- Section: home -->
       <section id="home">
         <div class="container-fluid p-0">
-
+          
           <!-- Slider Revolution Start -->
           <div class="rev_slider_wrapper" style="max-height:500px">
-            <div class="rev_slider rev_slider_default" data-version="5.0" style="max-height:500px" >
+            <div class="rev_slider rev_slider_default" data-version="5.0" style="max-height:500px">
               <ul>
-
+              <?php  foreach ( array_values($Sliders) as $key => $value ) { ?>
                 <!-- SLIDE 1 -->
-                <li data-index="rs-1" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default"
-                  data-thumb="<?=base_url()?>assets/images/bg/slide.png" data-rotate="0" data-fstransition="fade" data-saveperformance="off" data-title="Web Show"
-                  data-description="">
+                <li data-index="rs-<?php echo $key + 1 ; ?>" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="<?=base_url()?>assets/Uploads/Images/<?=$value->Image ?>" data-rotate="0"  data-fstransition="fade" data-saveperformance="off" data-title="Web Show" data-description="">
                   <!-- MAIN IMAGE -->
-                  <img src="<?=base_url()?>assets/images/bg/slide.png" alt="" data-bgposition="center 20%" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg"
-                    data-bgparallax="6" data-no-retina>
+                  <img src="<?=base_url()?>assets/Uploads/Images/<?=$value->Image ?>"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-bgparallax="6" data-no-retina>
                   <!-- LAYERS -->
 
                   <!-- LAYER NR. 1 -->
-                  <div class="tp-caption tp-resizeme text-white text-uppercase font-raleway bg-theme-colored pl-20 pr-20" id="rs-1-layer-1"
-                    data-x="['left']" data-hoffset="['30']" data-y="['middle']" data-voffset="['-125']" data-fontsize="['24']"
-                    data-lineheight="['48']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;s:500"
-                    data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;" data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
-                    data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                    data-start="1000" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 5; white-space: nowrap; font-weight:700; border-left: 8px solid #fff;">Welcome To
+                  <div class="tp-caption tp-resizeme sft text-white text-uppercase font-raleway bg-theme-colored pl-20 pr-20" 
+                    id="rs-<?php echo $key + 1 ; ?>-layer-1"
+
+                    data-x="['left']"
+                    data-hoffset="['30']"
+                    data-y="['middle']"
+                    data-voffset="['-125']"
+                    data-fontsize="['24']"
+                    data-lineheight="['48']"
+                    data-width="none"
+                    data-height="none"
+                    data-whitespace="nowrap"
+                    data-transform_idle="o:1;s:500"
+                    data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;"
+                    data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
+                    data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
+                    data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+                    data-speed="500"
+                    data-start="600"
+                    data-splitin="none"
+                    data-splitout="none" 
+                    data-responsive_offset="on" 
+                    style="z-index: 5; white-space: nowrap; font-weight:700; border-left: 8px solid #fff;"> <?=$value->Text_One ?>
                   </div>
 
                   <!-- LAYER NR. 2 -->
-                  <div class="tp-caption tp-resizeme text-uppercase text-white font-raleway font-weight-700 m-0" id="rs-1-layer-2" data-x="['left']"
-                    data-hoffset="['30']" data-y="['middle']" data-voffset="['-50']" data-fontsize="['72']" data-lineheight="['82']"
-                    data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;s:500" data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;"
-                    data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                    data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1000" data-splitin="none" data-splitout="none"
-                    data-responsive_offset="on" style="z-index: 5; white-space: nowrap; font-weight:700;">Dexterous 
-                    <span class="text-theme-colored"> Technologies </span>
+                  <div class="tp-caption tp-resizeme sft text-uppercase text-white font-raleway font-weight-700 m-0" 
+                    id="rs-<?php echo $key + 1 ; ?>-layer-2"
+
+                    data-x="['left']"
+                    data-hoffset="['30']"
+                    data-y="['middle']"
+                    data-voffset="['-50']"
+                    data-fontsize="['72']"
+                    data-lineheight="['82']"
+                    data-width="none"
+                    data-height="none"
+                    data-whitespace="nowrap"
+                    data-transform_idle="o:1;s:500"
+                    data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;"
+                    data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
+                    data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
+                    data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+                    data-speed="500"
+                    data-start="800"
+                    data-splitin="none" 
+                    data-splitout="none" 
+                    data-responsive_offset="on" 
+                    style="z-index: 5; white-space: nowrap; font-weight:700;"> <span class="text-theme-colored"> <?=$value->Text_Two ?> </span>
                   </div>
 
-                 
+                  <!-- LAYER NR. 3 -->
+                  <div class="tp-caption tp-resizeme sft text-white" 
+                    id="rs-<?php echo $key + 1 ; ?>-layer-3"
 
-                  <!-- LAYER NR. 4 -->
-                  <div class="tp-caption" id="rs-1-layer-4" data-x="['left']" data-hoffset="['30']" data-y="['middle']" data-voffset="['90','100','110']"
-                    data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;s:500" data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;"
-                    data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                    data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1600" data-splitin="none" data-splitout="none"
-                    data-responsive_offset="on" style="z-index: 5; white-space: nowrap; letter-spacing:1px;">
-                    <a class="btn btn-theme-colored btn-lg btn-flat text-white font-weight-600 pl-30 pr-30" href="<?=base_url()?>index.php/Index/services">Our Service</a>
+                    data-x="['left']"
+                    data-hoffset="['30']"
+                    data-y="['middle']"
+                    data-voffset="['20']"
+                    data-fontsize="['16','18',24']"
+                    data-lineheight="['28']"
+                    data-width="none"
+                    data-height="none"
+                    data-whitespace="nowrap"
+                    data-transform_idle="o:1;s:500"
+                    data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;"
+                    data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
+                    data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
+                    data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+                    data-speed="500"
+                    data-start="1200"
+                    data-splitin="none" 
+                    data-splitout="none" 
+                    data-responsive_offset="on"
+                    style="z-index: 5; white-space: nowrap; font-weight:400;"> <?=$value->Text_Three ?>
                   </div>
+
                 </li>
-
-                <!-- SLIDE 2 -->
-                <li data-index="rs-2" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default"
-                  data-thumb="<?=base_url()?>assets/images/bg/slide_2.png" data-rotate="0" data-fstransition="fade" data-saveperformance="off" data-title="Web Show"
-                  data-description="">
-                  <!-- MAIN IMAGE -->
-                  <img src="<?=base_url()?>assets/images/bg/slide_2.png" alt="" data-bgposition="center 20%" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg"
-                    data-bgparallax="6" data-no-retina>
-                  <!-- LAYERS -->
-
-                  <!-- LAYER NR. 1 -->
-                  <div class="tp-caption tp-resizeme text-white text-uppercase font-raleway bg-theme-colored pl-20 pr-20" id="rs-2-layer-1"
-                    data-x="['right']" data-hoffset="['30']" data-y="['middle']" data-voffset="['-125']" data-fontsize="['24']"
-                    data-lineheight="['48']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;s:500"
-                    data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;" data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
-                    data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                    data-start="1000" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 5; white-space: nowrap; font-weight:700; border-right: 8px solid #fff;">Welcome To
-                  </div>
-
-                  <!-- LAYER NR. 2 -->
-                  <div class="tp-caption tp-resizeme text-uppercase text-white font-raleway font-weight-700 m-0" id="rs-2-layer-2" data-x="['right']"
-                    data-hoffset="['30']" data-y="['middle']" data-voffset="['-50']" data-fontsize="['72']" data-lineheight="['82']"
-                    data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;s:500" data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;"
-                    data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                    data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1000" data-splitin="none" data-splitout="none"
-                    data-responsive_offset="on" style="z-index: 5; white-space: nowrap; font-weight:700;">Dexterous
-                    <span class="text-theme-colored"> Technologies </span>
-                  </div>
-
-                  
-                </li>
-
-                <!-- SLIDE 3 -->
-                <li data-index="rs-3" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default"
-                  data-thumb="<?=base_url()?>assets/images/bg/slide_3.jpg" data-rotate="0" data-fstransition="fade" data-saveperformance="off" data-title="Web Show"
-                  data-description="">
-                  <!-- MAIN IMAGE -->
-                  <img src="<?=base_url()?>assets/images/bg/slide_3.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg"
-                    data-bgparallax="6" data-no-retina>
-                  <!-- LAYERS -->
-
-                  <!-- LAYER NR. 1 -->
-                  <div class="tp-caption tp-resizeme text-white text-uppercase font-raleway bg-theme-colored pl-20 pr-20" id="rs-3-layer-1"
-                    data-x="['left']" data-hoffset="['30']" data-y="['middle']" data-voffset="['-125']" data-fontsize="['24']"
-                    data-lineheight="['48']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;s:500"
-                    data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;" data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
-                    data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                    data-start="1000" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 5; white-space: nowrap; font-weight:700; border-left: 8px solid #fff;">Welcome To
-                  </div>
-
-                  <!-- LAYER NR. 2 -->
-                  <div class="tp-caption tp-resizeme text-uppercase text-white font-raleway font-weight-700 m-0" id="rs-3-layer-2" data-x="['left']"
-                    data-hoffset="['30']" data-y="['middle']" data-voffset="['-50']" data-fontsize="['72']" data-lineheight="['82']"
-                    data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;s:500" data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;"
-                    data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                    data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1000" data-splitin="none" data-splitout="none"
-                    data-responsive_offset="on" style="z-index: 5; white-space: nowrap; font-weight:700;"> Dexterous
-                    <span class="text-theme-colored"> Technologies </span>
-                  </div>
-
-                
-                </li>
-
+              <?php } ?>
+              
               </ul>
             </div>
             <!-- end .rev_slider -->
           </div>
           <!-- end .rev_slider_wrapper -->
           <script>
-            $(document).ready(function (e) {
+            $(document).ready(function(e) {
               $(".rev_slider_default").revolution({
-                sliderType: "standard",
+                sliderType:"standard",
                 sliderLayout: "auto",
                 dottedOverlay: "none",
                 delay: 5000,
                 navigation: {
-                  keyboardNavigation: "off",
-                  keyboard_direction: "horizontal",
-                  mouseScrollNavigation: "off",
-                  onHoverStop: "off",
-                  touch: {
-                    touchenabled: "on",
-                    swipe_threshold: 75,
-                    swipe_min_touches: 1,
-                    swipe_direction: "horizontal",
-                    drag_block_vertical: false
-                  },
+                    keyboardNavigation: "off",
+                    keyboard_direction: "horizontal",
+                    mouseScrollNavigation: "off",
+                    onHoverStop: "off",
+                    touch: {
+                        touchenabled: "on",
+                        swipe_threshold: 75,
+                        swipe_min_touches: 1,
+                        swipe_direction: "horizontal",
+                        drag_block_vertical: false
+                    },
                   arrows: {
                     style: "gyges",
                     enable: true,
@@ -169,16 +154,16 @@
                     hide_delay_mobile: 1200,
                     tmp: '',
                     left: {
-                      h_align: "left",
-                      v_align: "center",
-                      h_offset: 0,
-                      v_offset: 0
+                        h_align: "left",
+                        v_align: "center",
+                        h_offset: 0,
+                        v_offset: 0
                     },
                     right: {
-                      h_align: "right",
-                      v_align: "center",
-                      h_offset: 0,
-                      v_offset: 0
+                        h_align: "right",
+                        v_align: "center",
+                        h_offset: 0,
+                        v_offset: 0
                     }
                   },
                   bullets: {
@@ -202,16 +187,16 @@
                 gridheight: [580, 768, 960, 720],
                 lazyType: "none",
                 parallax: {
-                  origo: "slidercenter",
-                  speed: 1000,
-                  levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 46, 47, 48, 49, 50, 100, 55],
-                  type: "scroll"
+                    origo: "slidercenter",
+                    speed: 1000,
+                    levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 46, 47, 48, 49, 50, 100, 55],
+                    type: "scroll"
                 },
                 shadow: 0,
                 spinner: "off",
                 stopLoop: "on",
                 stopAfterLoops: 0,
-                stopAtSlide: 1,
+                stopAtSlide: -1,
                 shuffle: "off",
                 autoHeight: "off",
                 fullScreenAutoWidth: "off",
@@ -224,9 +209,9 @@
                 hideAllCaptionAtLilmit: 0,
                 debugMode: false,
                 fallbacks: {
-                  simplifyAll: "off",
-                  nextSlideOnWindowFocus: "off",
-                  disableFocusListener: false,
+                    simplifyAll: "off",
+                    nextSlideOnWindowFocus: "off",
+                    disableFocusListener: false,
                 }
               });
             });

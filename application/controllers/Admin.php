@@ -628,6 +628,83 @@ public function ContactInterestGet() {
   $result['data']= $data;
   echo json_encode($result);
 }
+// ---------------------------------------------- Slider  --------------------------------------------
+public function Slider() {
+  $data['sliders'] = $this->common_model->select('*','sliders');
+  $msg = $this->session->tempdata('item');
+  if ($msg != "" && $msg == "Success") {
+    $data['icon'] = "fa-check";
+    $data['type'] = "alert-success";
+    $data['msg'] = "Slider Successfully Submited";
+  }
+  if ($msg != "" && $msg == "Update") {
+     $data['icon'] = "fa-check";
+     $data['type'] = "alert-success";
+     $data['msg'] = "Slider Successfully Updated";
+  }
+  if ($msg != "" && $msg == "Deleted") {
+    $data['icon'] = "fa-check";
+    $data['type'] = "alert-success";
+    $data['msg'] = "Slider Successfully Deleted";
+  }
+  $this->load->view('admin/Slider',$data);
+}
+public function SliderSubmit() {
+  $session_data = $this->session->all_userdata();
+  extract($_REQUEST);
+
+    $target_dir = "./assets/Uploads/Images/";
+    $image_name= "Slider_".date("h-i-s").basename($_FILES["slider_img"]["name"]); 
+    $target_file = $target_dir .$image_name;
+    if (move_uploaded_file($_FILES["slider_img"]["tmp_name"] , $target_file)) {
+      $values =array( 'User_Id' => $this->session->userdata('user_id'),
+                      'Text_One' => $Text_One,
+                      'Text_Two' => $Text_Two,
+                      'Text_Three' => $Text_Three,
+                      'Image'=> $image_name,
+                      'Updated_Date' => date('Y-m-d H:i:s'));
+      $result = $this->common_model->insert('sliders',$values);
+    }   
+
+  $this->session->set_tempdata('item','Success',5); 
+  redirect("/Admin/Slider");
+}
+public function SliderGet() {
+  $data=$this->common_model->select('*','sliders',array('id'=>$_POST['id']));
+  $result=array();
+  $result['data']= $data;
+  echo json_encode($result);
+}
+public function SliderUpdate($id) {
+  $session_data = $this->session->all_userdata();
+  extract($_REQUEST);
+  $where = array('id' => $id);
+
+    if( $_FILES["slider_img"]["name"] !== '' ) {
+      $target_dir = "./assets/Uploads/Images/";
+      $image_name = "Slider_".date("h-i-s").basename($_FILES["slider_img"]["name"]); 
+      $target_file = $target_dir .$image_name;
+      move_uploaded_file($_FILES["slider_img"]["tmp_name"] , $target_file);
+    }else{
+      $image_name = $old_Image;
+    }
+
+    $values =array( 'User_Id' => $this->session->userdata('user_id'),
+                    'Text_One' => $Text_One,
+                    'Text_Two' => $Text_Two,
+                    'Text_Three' => $Text_Three,
+                    'Image'=> $image_name,
+                    'Updated_Date' => date('Y-m-d H:i:s'));
+    $result = $this->common_model->update('sliders',$values,$where); 
+
+  $this->session->set_tempdata('item','Update',5); 
+  redirect("/Admin/Slider");
+}
+public function SliderDelete($id){
+  $this->common_model->delete_rows('sliders',array('id'=> $id));
+  $this->session->set_tempdata('item','Deleted',5); 
+  redirect("/Admin/Slider");
+}
 // ---------------------------------------------- LogOut  --------------------------------------------
 public function logout(){
     $this->session->unset_userdata('user_id');
